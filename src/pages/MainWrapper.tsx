@@ -1,12 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { RootState } from '@/store';
 import { TestLoginForm } from '@/components';
-import { logOut } from '@/features/auth/authSlice';
+import TestPage from './TestPage';
 
 function Main() {
-  const dispatch = useDispatch();
   const { user, loading } = useSelector((state: RootState) => state.auth);
 
   if (loading) {
@@ -24,16 +23,7 @@ function Main() {
 
   return (
     <Routes>
-      <Route
-        path="/main"
-        element={
-          <>
-            <button onClick={() => dispatch(logOut())} disabled={loading}>
-              로그아웃
-            </button>
-          </>
-        }
-      />
+      <Route path="/main" element={<TestPage />} />
       <Route path="*" element={<Navigate replace to="/main" />} />
     </Routes>
   );

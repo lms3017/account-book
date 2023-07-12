@@ -1,10 +1,10 @@
 import React from 'react';
-import Main from '@/pages/Main';
+import MainWrapper from '@/pages/MainWrapper';
 
 function App() {
   return (
     <>
-      <Main />
+      <MainWrapper />
     </>
   );
 }
